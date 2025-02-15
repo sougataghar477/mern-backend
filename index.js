@@ -21,13 +21,13 @@ app.use(
 );
 
 // ✅ Manually set headers (not needed if using cors middleware above)
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://mern-frontend-chi-taupe.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://mern-frontend-chi-taupe.vercel.app");
+//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   next();
+// });
 
 // ✅ Root route
 app.get("/", (req, res) => {
@@ -36,14 +36,14 @@ app.get("/", (req, res) => {
 
 // ✅ API route to set cookies
 app.get("/api", (req, res) => {
-  res.cookie("token", "your-secret-token", {
-    httpOnly: true,  // ✅ Prevent JavaScript access
-    secure: true,    // ✅ Required for HTTPS
-    sameSite: "none" // ✅ Needed for cross-origin requests
+    res.cookie("token", "your-secret-token", {
+      httpOnly: true,  // ✅ Prevent JavaScript access
+      secure: true,    // ✅ Required for HTTPS (keep it for production)
+      sameSite: "none" // ✅ Needed for cross-origin requests
+    });
+  
+    res.json({ message: "Cookie Set!" });
   });
-
-  res.json({ message: "Hello from /api" });
-});
 
 // ✅ Export for Vercel
 module.exports = app;
