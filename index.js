@@ -17,7 +17,7 @@ app.use(
     cors({
       origin: "https://mern-frontend-chi-taupe.vercel.app", // ✅ Your frontend domain
       credentials: true, // ✅ Required to allow cookies
-    s withCredentials: true
+      origin: true, withCredentials: true
     })
   );
 
