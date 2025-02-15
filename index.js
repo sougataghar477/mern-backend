@@ -10,12 +10,12 @@ const dbURI =
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin:["http://localhost:5173","https://mern-frontend-chi-taupe.vercel.app"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin:["http://localhost:5173","https://mern-frontend-chi-taupe.vercel.app"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
@@ -32,7 +32,7 @@ app.use(
       httpOnly: true,
       path: "/", // Cookie is valid for all paths
     //   domain: "localhost", // ✅ FIXED: Removed `http://`
-      secure: false, // Set `true` in production (HTTPS required for "none" in sameSite)
+      secure: true, // Set `true` in production (HTTPS required for "none" in sameSite)
       sameSite: "secure", // "strict" | "lax" | "none" (secure must be true for "none")
       maxAge: 3600000, // 1 hour
     },
