@@ -6,13 +6,13 @@ const MongoDBSession = require("connect-mongodb-session")(session);
 require("dotenv").config();
 
 const dbURI =
-  "mongodb+srv://sougataghar47:sitonmeloba69@cluster0.fllgfxo.mongodb.net/crud?retryWrites=true&w=majority";
+  "mongodb+srv://sougataghar47:sitonmeloba69@cluster0.fllgfxo.mongodb.net/todos?retryWrites=true&w=majority";
 
 const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.use(
   session({
-    secret: "SS",
+    secret: "sitonmeloba69",
     resave: false,
     saveUninitialized: false,
     store: new MongoDBSession({
@@ -44,7 +44,6 @@ app.get("/api", (req, res) => {
   res.json({ message: "Hello" });
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`App running on ${PORT}`);
-});
+ 
+// Export the app for Vercel
+module.exports = app;
