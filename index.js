@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin:["http://localhost:5173","https://mern-frontend-chi-taupe.vercel.app"],
+    origin:["https://mern-frontend-chi-taupe.vercel.app"],
     credentials: true,
   })
 );
