@@ -13,21 +13,14 @@ const app = express();
 app.use(express.json());
 
 // ✅ CORS Middleware - Allow frontend domain
-// app.use(
-//   cors({
-//     origin: "https://mern-frontend-chi-taupe.vercel.app", // Replace with your frontend URL
-//     credentials: true, // ✅ Allow credentials (cookies, sessions)
-//   })
-// );
+app.use(
+    cors({
+      origin: "https://mern-frontend-chi-taupe.vercel.app", // ✅ Your frontend domain
+      credentials: true, // ✅ Required to allow cookies
+    })
+  );
 
-// ✅ Manually set headers (not needed if using cors middleware above)
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://mern-frontend-chi-taupe.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
+
 
 // ✅ Root route
 app.get("/", (req, res) => {
@@ -39,7 +32,7 @@ app.get("/api", (req, res) => {
     res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate"); // ✅ Prevents 304 caching
     res.setHeader("Pragma", "no-cache");  
     res.setHeader("Expires", "0");
-    
+
     res.cookie("token", "your-secret-token", {
       httpOnly: true,  // ✅ Prevent JavaScript access
       secure: true,    // ✅ Required for HTTPS (keep it for production)
