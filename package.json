@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "connect-mongodb-session": "^5.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -15,7 +16,6 @@
   },
   "name": "backend",
   "version": "1.0.0",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
