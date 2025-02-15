@@ -6,9 +6,10 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
- 
+require("dotenv").config();
 
- 
+const dbURI =
+  "mongodb+srv://sougataghar47:sitonmeloba69@cluster0.fllgfxo.mongodb.net/todos?retryWrites=true&w=majority";
 
 const app = express();
 
