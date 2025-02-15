@@ -7,7 +7,7 @@ require("dotenv").config();
 const app = express();
 
 // ✅ Use cookie parser
-app.use(cookieParser());
+// app.use(cookieParser());
 
 // ✅ Enable JSON parsing
 app.use(express.json());
@@ -36,6 +36,10 @@ app.get("/", (req, res) => {
 
 // ✅ API route to set cookies
 app.get("/api", (req, res) => {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate"); // ✅ Prevents 304 caching
+    res.setHeader("Pragma", "no-cache");  
+    res.setHeader("Expires", "0");
+    
     res.cookie("token", "your-secret-token", {
       httpOnly: true,  // ✅ Prevent JavaScript access
       secure: true,    // ✅ Required for HTTPS (keep it for production)
