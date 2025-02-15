@@ -1,8 +1,8 @@
 const db = require("./mongo");
 const express = require("express");
 const cors = require("cors");
- 
- 
+const session = require("express-session");
+const MongoDBSession = require("connect-mongodb-session")(session);
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
@@ -13,17 +13,12 @@ const dbURI =
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin:["https://mern-frontend-chi-taupe.vercel.app"],
-//     credentials: true,
-//   })
-// );
+ 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://mern-frontend-chi-taupe.vercel.app"); // ✅ Replace with your frontend URL
+    res.header("Access-Control-Allow-Origin", "https://mern-frontend-chi-taupe.vercel.app");  
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    res.header("Access-Control-Allow-Credentials", "true"); // ✅ Required for cookies
+    res.header("Access-Control-Allow-Credentials", "true");  
     next();
   });
   
@@ -36,10 +31,9 @@ app.get("/", (req, res) => {
   });
 app.get("/api", (req, res) => {
     res.cookie("token", "your-secret-token", {
-        httpOnly: true,  // ✅ Prevents JavaScript access (more secure)
-        secure: true,    // ✅ Ensures it's only sent over HTTPS (needed for production)
-        sameSite: "none", // ✅ Required for cross-site requests (frontend and backend on different domains)
-        maxAge: 24 * 60 * 60 * 1000 // 1 day
+        httpOnly: true,   
+        secure: true,    
+        sameSite: "none",  
       });
   res.json({ message: "Hello" });
 });
