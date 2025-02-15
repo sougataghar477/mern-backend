@@ -39,8 +39,8 @@ app.use(
       httpOnly: true,
       path: "/", // Cookie is valid for all paths
     //   domain: "localhost", // ✅ FIXED: Removed `http://`
-      secure: true, // Set `true` in production (HTTPS required for "none" in sameSite)
-      sameSite: "secure", // "strict" | "lax" | "none" (secure must be true for "none")
+      secure: false, // Set `true` in production (HTTPS required for "none" in sameSite)
+      sameSite: "none", // "strict" | "lax" | "none" (secure must be true for "none")
       maxAge: 3600000, // 1 hour
     },
   })
