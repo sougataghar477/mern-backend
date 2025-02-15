@@ -38,7 +38,10 @@ app.use(
     },
   })
 );
-
+app.get("/", (req, res) => {
+     
+    res.json({ message: "Hello from  /" });
+  });
 app.get("/api", (req, res) => {
   req.session.user = { name: "Sougata", id: 1 };
   res.json({ message: "Hello" });
