@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 app.get("/api", (req, res) => {
     res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate"); // ✅ Prevents 304 caching
     res.setHeader("Pragma", "no-cache");  
-    
+    console.log(req.cookies)
 
     res.cookie("token", "your-secret-token", {
       httpOnly: true,  // ✅ Prevent JavaScript access
