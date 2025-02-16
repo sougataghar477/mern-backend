@@ -37,7 +37,7 @@ app.get("/api", (req, res) => {
     res.cookie("token", "your-secret-token", {
       httpOnly: true,  // ✅ Prevent JavaScript access
       secure: true,    // ✅ Required for HTTPS (keep it for production)
-      sameSite: "None", // ✅ Needed for cross-origin requests
+      sameSite: "none", // ✅ Needed for cross-origin requests
       maxAge:3600
     });
   
