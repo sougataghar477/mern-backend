@@ -39,7 +39,7 @@ app.get("/api", (req, res) => {
       secure: true,    // ✅ Required for HTTPS (keep it for production)
       sameSite: "none", // ✅ Needed for cross-origin requests
       maxAge:7200,
-      domain: ".vercel.app", // 👈 Set to your frontend domain
+      domain: "https://mern-backend-vucq.vercel.app/api", // 👈 Set to your frontend domain
     path: "/",
     });
   
