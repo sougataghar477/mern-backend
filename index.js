@@ -34,14 +34,16 @@ app.get("/api", (req, res) => {
     res.setHeader("Pragma", "no-cache");  
     console.log(req.cookies)
 
-    res.cookie("token", "your-secret-token", {
-      httpOnly: true,  // ✅ Prevent JavaScript access
-      secure: true,    // ✅ Required for HTTPS (keep it for production)
-      sameSite: "none", // ✅ Needed for cross-origin requests
-      maxAge:7200,// 👈 Set to your frontend domain
-    path: "/",
-    });
-  
+    // res.cookie("token", "your-secret-token", {
+    //   httpOnly: true,  // ✅ Prevent JavaScript access
+    //   secure: true,    // ✅ Required for HTTPS (keep it for production)
+    //   sameSite: "none", // ✅ Needed for cross-origin requests
+    //   maxAge:7200,// 👈 Set to your frontend domain
+    // path: "/",
+    // });
+    const token = "your_generated_token";
+
+    res.setHeader("Set-Cookie", `token=${token}; Path=/; HttpOnly; Secure; SameSite=None; Partitioned`);
     res.json({ message: "Cookie Set!" });
   });
 
