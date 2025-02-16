@@ -38,8 +38,7 @@ app.get("/api", (req, res) => {
       httpOnly: true,  // ✅ Prevent JavaScript access
       secure: true,    // ✅ Required for HTTPS (keep it for production)
       sameSite: "none", // ✅ Needed for cross-origin requests
-      maxAge:7200,
-      domain: "https://mern-backend-vucq.vercel.app/api", // 👈 Set to your frontend domain
+      maxAge:7200,// 👈 Set to your frontend domain
     path: "/",
     });
   
