@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 });
 
 // ✅ API route to set cookies
-app.get("/api", (req, res) => {
+app.post("/api", (req, res) => {
     res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate"); // ✅ Prevents 304 caching
     res.setHeader("Pragma", "no-cache");  
     console.log(req.cookies)
