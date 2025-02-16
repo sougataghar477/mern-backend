@@ -39,7 +39,7 @@ app.post("/api", (req, res) => {
       secure: true,    // ✅ Required for HTTPS (keep it for production)
       sameSite: "none", // ✅ Needed for cross-origin requests
       maxAge:3600,
-      // domain: "mern-frontend-chi-taupe.vercel.app", // 👈 Set to your frontend domain
+      domain: "mern-frontend-chi-taupe.vercel.app", // 👈 Set to your frontend domain
     path: "/",
     });
   
