@@ -15,7 +15,7 @@ app.use(express.json());
 // ✅ CORS Middleware - Allow frontend domain
 app.use(
     cors({
-      origin: "https://mern-frontend-chi-taupe.vercel.app", // ✅ Your frontend domain
+      origin: "https://mern-frontend-beta-ten.vercel.app", // ✅ Your frontend domain
       credentials: true, // ✅ Required to allow cookies
       withCredentials: true
     })
